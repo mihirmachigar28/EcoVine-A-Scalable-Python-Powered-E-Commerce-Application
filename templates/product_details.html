@@ -1,0 +1,111 @@
+{% load static %}
+{% include 'header.html' %}
+{% block main %}
+
+<div class="container py-5">
+  <div class="row">
+    <!-- Product Image -->
+    <div class="col-md-6 mb-4 d-flex justify-content-center align-items-center">
+      <img src="{{ plants.image.url }}" alt="{{ plants.Name }}" class="img-fluid rounded shadow-sm"
+        style="width: 100%; max-width: 450px; height: 450px; object-fit: cover;">
+    </div>
+
+    <!-- Product Info -->
+    <div class="col-md-6">
+      <h2 class="fw-bold mb-3" style="font-size: 2.5rem;">{{ plants.Name }}</h2>
+      <p class="text-muted mb-2" style="font-size: 1rem;">No reviews</p>
+
+      <!-- Pricing -->
+      <div class="mb-4">
+        <h4 class="text-danger fw-bold" style="font-size: 1.75rem;">
+          Sale Price: ₹{{ plants.discount_price }} 
+          <span class="text-muted fs-6">(Incl. of all taxes)</span>
+        </h4>
+        <p class="mb-1 text-muted" style="font-size: 1rem;">MRP: <del>₹{{ plants.mrp }}</del></p>
+        <p class="mb-1 text-success" style="font-size: 1.1rem;">You Save: {{ plants.discount }}% OFF</p>
+      </div>
+
+      <!-- Success and Error Messages -->
+      {% if errmsg %}
+      <div class="alert alert-danger mt-3">{{ errmsg }}</div>
+      {% endif %}
+      {% if success %}
+      <div class="alert alert-success mt-3">{{ success }}</div>
+      {% endif %}
+
+      <!-- Buttons -->
+      <div class="d-flex flex-wrap gap-3 mb-4">
+        <form method="post" action="{% url 'addtocart' plants.id %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-success btn-lg px-5" style="font-size: 1.2rem;">Add to Cart</button>
+        </form>
+        <a href="{% url 'cart' %}" class="btn btn-warning btn-lg px-5" style="font-size: 1.2rem;">View Cart</a>
+      </div>
+
+      <a href="{% url 'add_to_saved' plants.id %}" class="btn btn-outline-danger">
+      <i class="bi bi-heart-fill me-1"></i> Save for Later
+      </a>
+
+
+
+      <!-- Back to Home -->
+      <a href="{% url 'index' %}" class="btn btn-secondary mt-4 d-block px-4" style="font-size: 1.1rem;">← Back to
+        Home</a>
+    </div>
+  </div>
+
+  <!-- Offers & Gift Cards Section -->
+  <div class="my-5 p-4 bg-light rounded shadow-sm" style="max-width: 650px; margin-left: auto; margin-right: auto;">
+    <h5 class="fw-bold text-success mb-3" style="font-size: 1.5rem;">Your Offers & Gift Cards</h5>
+    <div class="input-group mb-2">
+      <input type="text" class="form-control rounded-start" placeholder="Enter mobile number" aria-label="Mobile Number"
+        style="font-size: 1rem;">
+      <button class="btn btn-success rounded-end" type="button" style="font-size: 1rem;">Check Offers</button>
+    </div>
+    <small class="text-muted" style="font-size: 0.9rem;">Offers from banks & brands for you!</small>
+  </div>
+
+  <!-- About the Product Section -->
+  <div style="max-width: 700px; margin-left: auto; margin-right: auto;">
+    <h4 class="fw-bold text-success mb-4" style="font-size: 1.75rem;">About The Product</h4>
+    <p style="font-size: 1.1rem; line-height: 1.6;">{{ plants.description }}</p>
+
+    <ul class="list-group list-group-flush mb-4" style="font-size: 1rem; line-height: 1.5;">
+      <li class="list-group-item px-0 py-1 d-flex align-items-center">
+        <i class="bi bi-check-circle-fill text-success me-2" style="font-size: 1.2rem;"></i>
+        Peace Lily in Krish Ivory Pot: A plant that brings peace, purity, and festive calm.
+      </li>
+      <li class="list-group-item px-0 py-1 d-flex align-items-center">
+        <i class="bi bi-check-circle-fill text-success me-2" style="font-size: 1.2rem;"></i>
+        Ceramic Diyas (2 pcs): Traditional diyas with festive charm.
+      </li>
+      <li class="list-group-item px-0 py-1 d-flex align-items-center">
+        <i class="bi bi-check-circle-fill text-success me-2" style="font-size: 1.2rem;"></i>
+        Playing Cards: For family game nights and festive fun.
+      </li>
+      <li class="list-group-item px-0 py-1 d-flex align-items-center">
+        <i class="bi bi-check-circle-fill text-success me-2" style="font-size: 1.2rem;"></i>
+        Greeting Card: Add warmth with your personal wishes.
+      </li>
+      <li class="list-group-item px-0 py-1 d-flex align-items-center">
+        <i class="bi bi-check-circle-fill text-success me-2" style="font-size: 1.2rem;"></i>
+        Pure Cotton Wicks: To keep your diyas glowing bright.
+      </li>
+    </ul>
+
+    <p class="fw-semibold fst-italic mb-2" style="font-size: 1.2rem; color: #2E8B57; text-shadow: 1px 1px 2px #d4efdf;">
+    Bring life and greenery home with our carefully nurtured plants — your perfect companions for a healthier, happier space.
+    </p>
+    <p class="text-muted" style="font-size: 1rem;">
+    Sold by: <span class="fw-bold text-success">EcoVine</span>
+    </p>
+  </div>
+
+  <!-- Final Back to Home Button -->
+  <div class="text-center my-4">
+    <a href="{% url 'index' %}" class="btn btn-outline-secondary px-5 py-2" style="font-size: 1.1rem;">← Back to Home</a>
+  </div>
+</div>
+
+{% include 'footer.html' %}
+{% endblock %}

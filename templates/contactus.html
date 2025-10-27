@@ -1,0 +1,88 @@
+{% load static %}
+{% include 'header.html' %}
+
+<div class="container py-5">
+  <h2 class="mb-4 text-success fw-bold">Get in Touch</h2>
+
+  <!-- Contact Form -->
+  <div class="row mb-5">
+    <div class="col-md-6">
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-control" placeholder="Your Name">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email *</label>
+          <input type="email" class="form-control" placeholder="Your Email" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" class="form-control" placeholder="Your Phone Number">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Comment</label>
+          <textarea class="form-control" rows="4" placeholder="Write your message here..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="col-md-6">
+      <h5 class="fw-bold text-success">EcoVine Pvt Ltd</h5>
+      <p>
+        <strong>Address:</strong><br>
+        Ugaoo, 03-111, Third floor, WeWork Eleven West,<br>
+        Pancard Club Road, Baner, Mumbai 411045
+      </p>
+      <p><strong>Telephone:</strong> <a href="tel:+919129912991">+91-9129912991</a></p>
+
+      <p>
+        <strong>Grievance Redressal Officer:</strong><br>
+        Mihir Machigar<br>
+        <a href="mailto:mihirmachigar@ugaoo.com">mihir.machigar@ecovne.com</a>
+      </p>
+
+      <h6 class="mt-4 fw-bold">Follow Us</h6>
+      <p>
+        <a href="#" class="me-3">Facebook</a>
+        <a href="#" class="me-3">Twitter</a>
+        <a href="#" class="me-3">Instagram</a>
+        <a href="#" class="me-3">LinkedIn</a>
+        <a href="#">YouTube</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Quick Links Section -->
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <h5 id="customer-service" class="fw-semibold text-success">Customer Service</h5>
+      <p>WhatsApp us at: <a href="tel:8087087224">80870 87224</a></p>
+      <p>Call: <a href="tel:+919129912991">+91-9129912991</a></p>
+      <p>Email: <a href="mailto:support@ecovine.com">support@ecovine.com</a></p>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <h5 id="corporate-enquiry" class="fw-semibold text-success">Bulk/Corporate Enquiry</h5>
+      <p>Contact Person: Corporate Gifting Executive</p>
+      <p>Contact No: <a href="tel:8087087225">8087087225</a></p>
+      <p>Email: <a href="mailto:gifting@ugaoo.com">gifting@ecovine.com</a>, <a href="mailto:mahie@ecovine.com">mahir@ecovine.com</a></p>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <h5 id="gardening-services" class="fw-semibold text-success">Gardening Services (Mumbai & Pune)</h5>
+      <p>Contact No: <a href="tel:8087087226">8087087226</a></p>
+      <p>Email: <a href="mailto:services@ugaoo.com">services@ecovine.com</a></p>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <h5 id="franchise-enquiry" class="fw-semibold text-success">Franchise Enquiry</h5>
+      <p>Contact Person: Mr. Mahir</p>
+      <p>Contact No: <a href="tel:9967621816">9967621816</a></p>
+      <p>Email: <a href="mailto:mohit@ugaoo.com">mahir@ecovine.com</a></p>
+    </div>
+  </div>
+</div>
+{% include 'footer.html'%}

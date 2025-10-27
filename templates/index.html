@@ -1,0 +1,63 @@
+{% extends "base.html" %}        <!-- {% include 'header.html' %} -->
+{% load static %}
+
+{% block main %}
+
+<div class="container my-5">
+  <div class="row">
+
+{% if search_query %}
+  <div class="alert alert-success d-flex align-items-center justify-content-between" role="alert">
+    <div>
+      <i class="bi bi-search me-2"></i>
+      <strong>Search Results:</strong> "{{ search_query }}"
+    </div>
+    <span class="badge bg-success rounded-pill">{{ plants|length }} found</span>
+  </div>
+
+  {% if plants|length == 0 %}
+    <div class="alert alert-warning text-center mt-4 shadow-sm">
+      <i class="bi bi-exclamation-triangle-fill me-2"></i>
+      <strong>No plants found</strong> matching "<em>{{ search_query }}</em>". Try a different keyword.
+    </div>
+  {% endif %}
+{% endif %}
+
+
+
+    {% for i in plants %}
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 shadow">
+        <a href="./product_details/{{ i.id }}">
+          <img src="{{ i.image.url }}" class="card-img-top" alt="{{ i.Name }}">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">{{ i.Name }}</h5>
+          <p class="card-text"><strong>Discount Price:</strong> ₹{{ i.discount_price }}</p>
+          <p class="card-text"><strong>MRP Price:</strong> <del>₹{{ i.mrp }}</del></p>
+          <p class="card-text"><strong>Discount:</strong> {{ i.discount }} % OFF</p>
+          <p class="card-text">
+            <div>
+              <strong>Rating:</strong> 
+              {% for star in "12345" %}
+                {% if forloop.counter <= i.rate %}
+                  <span style="color: gold; font-size: 1.1rem;">&#9733;</span> <!-- filled star -->
+                {% else %}
+                  <span style="color: #ccc; font-size: 1.1rem;">&#9733;</span> <!-- empty star -->
+                {% endif %}
+              {% endfor %}
+            </div>
+          </p>
+        </div>
+        <div class="card-footer text-center bg-white border-top-0 pb-3">
+          <a href="./product_details/{{ i.id }}" class="btn btn-warning w-100">View Details</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+
+{% endblock %}
+<!-- {% include 'footer.html' %} -->
