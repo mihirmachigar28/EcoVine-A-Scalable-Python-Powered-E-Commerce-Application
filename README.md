@@ -25,6 +25,22 @@ Browse products and add them to your cart.
 Proceed to checkout and complete payment.
 Admins can log in to manage products, users, and orders via the admin dashboard.
 
+📸 Screenshots (optional but recommended)
+Homepage
+![alt text](image.png)
+Product Listing
+![alt text](<card Info.png>)
+Shopping Cart
+![alt text](cart.png)
+Pleace Order
+![alt text](placeorder.png)
+Payment 
+![alt text](payment.png)
+Admin Dashboard
+![alt text](<admin Dashboard.png>)
+
+
+
 📈 Future Enhancements
 Integration with AI-based product recommendation system.
 Email notifications for orders and shipping updates.
