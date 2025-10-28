@@ -190,7 +190,7 @@ def pay(request):
         for p in orders:
             s = s + p.pid.discount_price * p.qty
 
-        client = razorpay.Client(auth=("rzp_test_RTGbk96sQcEcoy", "YN3eqOZMp7bAAGzI7cVJnxvd"))
+        client = razorpay.Client(auth=("#", "#"))
         data = { "amount": s * 100, "currency": "INR", "receipt": "order_rcptid_" + str(oid) }
         payment = client.order.create(data=data)
         print(payment)
